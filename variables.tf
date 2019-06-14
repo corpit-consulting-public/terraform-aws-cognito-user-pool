@@ -1,9 +1,9 @@
 ###Variables for Cognito User Pool
 
 variable "admin_create_user_config" {
-  type        = "map"
+  type        = "list"
   description = "The configuration for AdminCreaterUser requests"
-  default     = {}
+  default     = []
 }
 
 variable "alias_attributes" {
@@ -15,7 +15,7 @@ variable "alias_attributes" {
 variable "auto_verified_attributes" {
   type        = "list"
   description = "The attribute to be auto-verified. Possible values: email, phone_number"
-  default     = ""
+  default     = []
 }
 
 variable "device_configuration" {
@@ -36,9 +36,9 @@ description = "The name of the user pool"
 }
 
 variable "email_verification_subject" {
-type = "list"
+type = "string"
 description = "A string representing the email verification subject. Conflicts with verification_message_template configuration block email_subject argument"
-default     = []
+default     = ""
 }
 
 variable "email_verification_message" {
@@ -96,8 +96,9 @@ variable "tags" {
 }
 
 variable "username_attributes" {
-  type        = "string"
+  type        = "list"
   description = "Specifies whether email addresses of phone numbers can be specified as usernames when a user signs up. Conflicts with alias_attributes "
+  default     = ""
 }
 
 variable "user_pool_add_ons" {
