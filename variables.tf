@@ -98,7 +98,7 @@ variable "tags" {
 variable "username_attributes" {
   type        = "list"
   description = "Specifies whether email addresses of phone numbers can be specified as usernames when a user signs up. Conflicts with alias_attributes "
-  default     = ""
+  default     = []
 }
 
 variable "user_pool_add_ons" {
