@@ -320,9 +320,9 @@ variable "required" {
 }
 
 variable "string_attribute_constraints" {
-  type        = "string"
+  type        = "list"
   description = "Specifies the constraints for an attribute of the string type"
-  default     = ""
+  default     = []
 }
 
 #Variable Number Attribute Constraints (inside of schema)
