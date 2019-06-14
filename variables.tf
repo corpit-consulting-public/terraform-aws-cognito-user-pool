@@ -83,6 +83,12 @@ variable "sms_verification_message" {
   default     = ""
 }
 
+variable "sms_authentication_message" {
+  type        = "string"
+  description = "A string representing the SMS verification message. Conflicts with verification_message_template configuration block sms_message argument" 
+  default     = ""
+}
+
 variable "tags" {
   type        = "map"
   description = "A mapping of tags to assign to User Pool"
