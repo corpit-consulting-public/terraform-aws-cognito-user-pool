@@ -66,9 +66,9 @@ variable "password_policy" {
 }
 
 variable "schema" {
-  type        = "map"
+  type        = "list"
   description = "A container with the schema attributes of a user pool. Maximum of 50 attributes"
-  default     = {}
+  default     = []
 }
 
 variable "sms_configuration" {
@@ -122,9 +122,9 @@ variable "allow_admin_create_user_only" {
 }
 
 variable "invite_message_template" {
-  type        = "string"
+  type        = "map"
   description = "The invite message template structure"
-  default     = ""
+  default     = {}
 }
 
 variable "unused_account_validity_days" {
