@@ -7,27 +7,27 @@ variable "admin_create_user_config" {
 }
 
 variable "alias_attributes" {
-  type        = "string"
+  type        = "list"
   description = "Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Cconflicts with username_attributes."
-  default     = ""
+  default     = []
 }
 
 variable "auto_verified_attributes" {
-  type        = "string"
+  type        = "list"
   description = "The attribute to be auto-verified. Possible values: email, phone_number"
   default     = ""
 }
 
 variable "device_configuration" {
-  type        = "map"
+  type        = "list"
   description = "The configuration for the user pool's device tracking"
-  default     = {}
+  default     = []
 }
 
 variable "email_configuration" {
-type        = "map"
+type        = "list"
 description = "The email configuration"
-default     = {}
+default     = []
 }
 
 variable "name" {
@@ -36,9 +36,9 @@ description = "The name of the user pool"
 }
 
 variable "email_verification_subject" {
-type = "string"
+type = "list"
 description = "A string representing the email verification subject. Conflicts with verification_message_template configuration block email_subject argument"
-default     = ""
+default     = []
 }
 
 variable "email_verification_message" {
@@ -48,9 +48,9 @@ default       = ""
 }
 
 variable "lambda_config" {
-type        = "map"
+type        = "list"
 description = "A container for the aws Lamda triggers associated with the user pool"
-default     = {}
+default     = []
 }
 
 variable "mfa_configuration" {
@@ -60,9 +60,9 @@ default     = "OFF"
 }
 
 variable "password_policy" {
-  type        = "map"
+  type        = "list"
   description = "A container for information about the user pool password policy"
-  default     = {}
+  default     = []
 }
 
 variable "schema" {
@@ -72,9 +72,9 @@ variable "schema" {
 }
 
 variable "sms_configuration" {
-  type        = "map"
+  type        = "list"
   description = "The SMS configuration"
-  default     = {}
+  default     = []
 }
 
 variable "sms_verification_message" {
@@ -101,15 +101,15 @@ variable "username_attributes" {
 }
 
 variable "user_pool_add_ons" {
-  type        = "map"
+  type        = "list"
   description = "Configuration block for user pool add-ons to enable user pool advanced security mode features"
-  default     = {}
+  default     = []
 }
 
 variable "verification_message_template" {
-  type        = "map"
+  type        = "list"
   description = "The verification messagetemplates configuration"
-  default     = {}
+  default     = []
 }
 
 ####################################################

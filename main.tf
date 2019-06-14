@@ -5,9 +5,9 @@ resource "aws_cognito_user_pool" "pool-1" {
   admin_create_user_config      = "${var.admin_create_user_config}"
   device_configuration          = "${var.device_configuration}"
   email_configuration           = "${var.email_configuration}"
-  email_verification_subject
-  email_verification_message
-  sms_verification_message
+  email_verification_subject    = "${var.email_verification_subject}"
+  email_verification_message    = "${var.email_verification_message}"
+  sms_verification_message      = "${var.sms_verification_message}"
   lambda_config                 = "${var.lambda_config}"
   password_policy               = "${var.password_policy}"
   schema                        = "${var.schema}"
