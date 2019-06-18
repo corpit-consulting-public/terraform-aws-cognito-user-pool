@@ -18,5 +18,3 @@ resource "aws_cognito_user_pool" "pool-1" {
   verification_message_template = "${var.verification_message_template}"
   tags                          = "${var.tags}"
 }
-
-
