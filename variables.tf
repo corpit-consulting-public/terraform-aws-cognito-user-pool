@@ -123,9 +123,9 @@ variable "allow_admin_create_user_only" {
 }
 
 variable "invite_message_template" {
-  type        = "map"
+  type        = "list"
   description = "The invite message template structure"
-  default     = {}
+  default     = []
 }
 
 variable "unused_account_validity_days" {
@@ -133,6 +133,7 @@ variable "unused_account_validity_days" {
   description = "The user account expiration limit, in days, after which the account is no longer usable"
   default     = ""
 }
+
 ##Variable for Invite Message template (inside of Admin Create User Config)
 variable "email_message" {
   type        = "string"
@@ -413,5 +414,11 @@ variable "email_subject_by_link" {
 variable "message_template_sms_message" {
   type        = "string"
   description = "The SMS message template. Must contain the {####} placeholder. Conflicts with sms_verification_message argument."
+  default     = ""
+}
+
+variable "temporary_password_validity_days" {
+  type        = "string"
+  description = "The user account expiration limit, in days, after which the account is no longer usable"
   default     = ""
 }
