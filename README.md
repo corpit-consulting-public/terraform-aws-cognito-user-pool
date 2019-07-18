@@ -78,7 +78,7 @@ If you want to update README.md file, run that script while being in 'hooks' fol
 | email\_verification\_message | A string representing the email verification message. Conflicts with verification_message_template configuration block email_message argument | string | `""` | no |
 | email\_verification\_subject | A string representing the email verification subject. Conflicts with verification_message_template configuration block email_subject argument | string | `""` | no |
 | external\_id | he external ID used in IAM role trust relationships. For more information about using external IDs, see How to Use an External ID When Granting Access to Your AWS Resources to a Third Party | string | `""` | no |
-| invite\_message\_template | The invite message template structure | map | `<map>` | no |
+| invite\_message\_template | The invite message template structure | list | `<list>` | no |
 | lambda\_config | A container for the aws Lamda triggers associated with the user pool | list | `<list>` | no |
 | max\_length | The maximum length of an attribute value of the string type | string | `""` | no |
 | max\_value | The maximum value of an attribute that is of the number data type | string | `""` | no |
@@ -113,10 +113,17 @@ If you want to update README.md file, run that script while being in 'hooks' fol
 | source\_arn | The ARN of the email source | string | `""` | no |
 | string\_attribute\_constraints | Specifies the constraints for an attribute of the string type | list | `<list>` | no |
 | tags | A mapping of tags to assign to User Pool | map | `<map>` | no |
+| temporary\_password\_validity\_days | The user account expiration limit, in days, after which the account is no longer usable | string | `""` | no |
 | unused\_account\_validity\_days | The user account expiration limit, in days, after which the account is no longer usable | string | `""` | no |
 | user\_migration | The user migration Lambda config type | string | `""` | no |
 | user\_pool\_add\_ons | Configuration block for user pool add-ons to enable user pool advanced security mode features | list | `<list>` | no |
 | username\_attributes | Specifies whether email addresses of phone numbers can be specified as usernames when a user signs up. Conflicts with alias_attributes | list | `<list>` | no |
 | verifi\_auth\_challenge\_response | Verifies the authentication challenge response | string | `""` | no |
 | verification\_message\_template | The verification messagetemplates configuration | list | `<list>` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| id | The id of the user pool |
 
