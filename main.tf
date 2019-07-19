@@ -7,7 +7,19 @@ resource "aws_cognito_user_pool" "pool-1" {
   email_verification_subject    = "${var.email_verification_subject}"
   email_verification_message    = "${var.email_verification_message}"
   sms_verification_message      = "${var.sms_verification_message}"
-  lambda_config                 = "${var.lambda_config}"
+  lambda_config                 = [{
+    create_auth_challenge          = "${var.create_auth_challenge}"
+    custom_message                 = "${var.custom_message}"
+    define_auth_challenge          = "${var.define_auth_challenge}"
+    post_authentication            = "${var.post_authentication}"
+    post_confirmation              = "${var.post_confirmation}"
+    pre_authentication             = "${var.pre_authentication}"
+    pre_sign_up                    = "${var.pre_sign_up}"
+    pre_token_generation           = "${var.pre_token_generation}"
+    user_migration                 = "${var.user_migration}"
+    verify_auth_challenge_response = "${var.verify_auth_challenge_response}"
+  
+  }]
   password_policy               = [{
     require_uppercase                = "${var.require_uppercase}"
     require_lowercase                = "${var.require_lowercase}"

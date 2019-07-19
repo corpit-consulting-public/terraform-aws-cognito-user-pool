@@ -210,7 +210,7 @@ variable "post_authentication" {
   default     = ""
 }
 
-variable "post_confimation" {
+variable "post_confirmation" {
   type        = "string"
   description = "A post-confirmation AWS Lambda trigger"
   default     = ""
@@ -240,7 +240,7 @@ variable "user_migration" {
   default     = ""
 }
 
-variable "verifi_auth_challenge_response" {
+variable "verify_auth_challenge_response" {
   type        = "string"
   description = "Verifies the authentication challenge response"
   default     = ""
