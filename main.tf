@@ -30,7 +30,10 @@ resource "aws_cognito_user_pool" "pool-1" {
   }]
   schema                        = "${var.schema}"
   mfa_configuration             = "${var.mfa_configuration}"
-  sms_configuration             = "${var.sms_configuration}"
+  sms_configuration             = {
+    sns_caller_arn              = "${var.sns_caller_arn}"
+    external_id                 = "${var.external_id}"
+  }
   sms_authentication_message    = "${var.sms_authentication_message}"
   user_pool_add_ons             = "${var.user_pool_add_ons}"
   verification_message_template = "${var.verification_message_template}"
