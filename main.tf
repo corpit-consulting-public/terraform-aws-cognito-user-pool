@@ -36,7 +36,7 @@ resource "aws_cognito_user_pool" "pool-1" {
   }
   sms_authentication_message    = "${var.sms_authentication_message}"
   user_pool_add_ons             = "${var.user_pool_add_ons}"
-  verification_message_template = "${var.verification_message_template}"
+  #verification_message_template = "${var.verification_message_template}"
   tags                          = "${var.tags}"
   admin_create_user_config = [{
     allow_admin_create_user_only = "${var.allow_admin_create_user_only}"
