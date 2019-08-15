@@ -45,7 +45,7 @@ module "CognitoUserPool" {
   require_symbols                = "${var.require_symbols}"
   require_uppercase              = "${var.require_uppercase}"
   allow_admin_create_user_only   = "${var.allow_admin_create_user_only}"
-  unused_account_validity_days   = "$var.unused_account_validity_days}"
+  unused_account_validity_days   = "${var.unused_account_validity_days}"
 }
 ```
 ## README.md
