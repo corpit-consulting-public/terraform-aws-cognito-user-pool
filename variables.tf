@@ -25,38 +25,38 @@ variable "device_configuration" {
 }
 
 variable "email_configuration" {
-type        = "list"
-description = "The email configuration"
-default     = []
+  type        = "list"
+  description = "The email configuration"
+  default     = []
 }
 
 variable "name" {
-type = "string"
-description = "The name of the user pool"
+  type        = "string"
+  description = "The name of the user pool"
 }
 
 variable "email_verification_subject" {
-type = "string"
-description = "A string representing the email verification subject. Conflicts with verification_message_template configuration block email_subject argument"
-default     = ""
+  type        = "string"
+  description = "A string representing the email verification subject. Conflicts with verification_message_template configuration block email_subject argument"
+  default     = "Your verification code"
 }
 
 variable "email_verification_message" {
-type        = "string"
-description = "A string representing the email verification message. Conflicts with verification_message_template configuration block email_message argument"
-default       = ""
+  type        = "string"
+  description = "A string representing the email verification message. Conflicts with verification_message_template configuration block email_message argument"
+  default     = "Your verification code is {####}"
 }
 
 variable "lambda_config" {
-type        = "list"
-description = "A container for the aws Lamda triggers associated with the user pool"
-default     = []
+  type        = "list"
+  description = "A container for the aws Lamda triggers associated with the user pool"
+  default     = []
 }
 
 variable "mfa_configuration" {
-type        = "string"
-description = "(Default: OFF) Set to enable multifactor authentication. Must be one of the following values (ON, OFF, OPTIONAL)"
-default     = "OFF"
+  type        = "string"
+  description = "(Default: OFF) Set to enable multifactor authentication. Must be one of the following values (ON, OFF, OPTIONAL)"
+  default     = "OFF"
 }
 
 variable "password_policy" {
@@ -80,13 +80,13 @@ variable "sms_configuration" {
 variable "sms_verification_message" {
   type        = "string"
   description = "A string representing the SMS verification message. Conficts with verification_message_template configuration block sms_message argument"
-  default     = ""
+  default     = "Your verification code is {####}"
 }
 
 variable "sms_authentication_message" {
   type        = "string"
   description = "A string representing the SMS verification message. Conflicts with verification_message_template configuration block sms_message argument" 
-  default     = ""
+  default     = "Your authentication code is {####}."
 }
 
 variable "tags" {
@@ -131,26 +131,26 @@ variable "invite_message_template" {
 variable "unused_account_validity_days" {
   type        = "string"
   description = "The user account expiration limit, in days, after which the account is no longer usable"
-  default     = ""
+  default     = "30"
 }
 
 ##Variable for Invite Message template (inside of Admin Create User Config)
 variable "email_message" {
   type        = "string"
   description = "The message template for email messages. Must contain {username} and {####} placeholder, for username and temporary password, respectively"
-  default     = ""
+  default     = "<p>Your username is {username} and temporary password is {####}</p>\n<p>Login here: <a href=\"https://login.mvp.quickpivot.app\">https://login.mvp.quickpivot.app</a></p>\n\n<p>Thanks,<p>\n<p>QuickPivot Team<p>"
 }
 
 variable "email_subject" {
   type        = "string"
   description = "The subject line for email messages"
-  default     = ""
+  default     = "Your temporary password for {####}"
 }
 
 variable "sms_message" {
   type         = "string"
   description  = "The messagetemplate for SMS messages. Must contain {username} and {####} placeholder, for username and temporary password, respectively"
-  default      = ""
+  default      = "Your username is {username} and temporary password is {####}. If you do not log in within 7 days you'll need a new invite."
 }
 
 ################################################
@@ -252,7 +252,7 @@ variable "verify_auth_challenge_response" {
 variable "minimum_length" {
   type        = "string"
   description = "The minimum length of the password policy that you have set"
-  default     = ""
+  default     = "8"
 }
 
 variable "require_lowercase" {
@@ -276,6 +276,7 @@ variable "require_symbols" {
 variable "require_uppercase" {
   type        = "string"
   description = "Whether you have required users to use at least one uppercase letter in their password"
+  default     = ""
 }
 
 ############################################
