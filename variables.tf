@@ -258,25 +258,25 @@ variable "minimum_length" {
 variable "require_lowercase" {
   type        = "string"
   description = "Whether you have required users to use at least one lowercase letter in their password"
-  default     = ""
+  default     = "false"
 }
 
 variable "require_numbers" {
   type        = "string"
   description = "Whether you have required users to use at least one number in their password"
-  default     = ""
+  default     = "false"
 }
 
 variable "require_symbols" {
   type        = "string"
   description = "Whether you have required users to use at least on symbol in their password"
-  default     = ""
+  default     = "false"
 }
 
 variable "require_uppercase" {
   type        = "string"
   description = "Whether you have required users to use at least one uppercase letter in their password"
-  default     = ""
+  default     = "false"
 }
 
 ############################################
