@@ -163,7 +163,7 @@ variable "challenge_required_on_new_device" {
 }
 
 variable "device_only_remembered_one_user_prompt" {
-  type        = ""
+  type        = "string"
   description = "If a true, a device is only remembered on user prompt (true or false)"
   default     = ""
 }
@@ -256,27 +256,27 @@ variable "minimum_length" {
 }
 
 variable "require_lowercase" {
-  type        = "bool"
+  type        = "string"
   description = "Whether you have required users to use at least one lowercase letter in their password"
-  default     = false
+  default     = "false"
 }
 
 variable "require_numbers" {
-  type        = "bool"
+  type        = "string"
   description = "Whether you have required users to use at least one number in their password"
-  default     = false
+  default     = "false"
 }
 
 variable "require_symbols" {
-  type        = "bool"
+  type        = "string"
   description = "Whether you have required users to use at least on symbol in their password"
-  default     = false
+  default     = "false"
 }
 
 variable "require_uppercase" {
-  type        = "bool"
+  type        = "string"
   description = "Whether you have required users to use at least one uppercase letter in their password"
-  default     = false
+  default     = "false"
 }
 
 ############################################
