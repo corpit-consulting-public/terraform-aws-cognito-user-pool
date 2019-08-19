@@ -256,27 +256,27 @@ variable "minimum_length" {
 }
 
 variable "require_lowercase" {
-  type        = "string"
+  type        = "bool"
   description = "Whether you have required users to use at least one lowercase letter in their password"
-  default     = "false"
+  default     = false
 }
 
 variable "require_numbers" {
-  type        = "string"
+  type        = "bool"
   description = "Whether you have required users to use at least one number in their password"
-  default     = "false"
+  default     = false
 }
 
 variable "require_symbols" {
-  type        = "string"
+  type        = "bool"
   description = "Whether you have required users to use at least on symbol in their password"
-  default     = "false"
+  default     = false
 }
 
 variable "require_uppercase" {
-  type        = "string"
+  type        = "bool"
   description = "Whether you have required users to use at least one uppercase letter in their password"
-  default     = "false"
+  default     = false
 }
 
 ############################################
