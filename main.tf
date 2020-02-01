@@ -26,7 +26,7 @@ resource "aws_cognito_user_pool" "pool-1" {
     require_numbers                  = "${var.require_numbers}"
     require_symbols                  = "${var.require_symbols}"
     minimum_length                   = "${var.minimum_length}"
-    #temporary_password_validity_days = "${var.temporary_password_validity_days}"                           
+    temporary_password_validity_days = "${var.temporary_password_validity_days}"         
   }]
   schema                        = "${var.schema}"
   mfa_configuration             = "${var.mfa_configuration}"
@@ -34,13 +34,16 @@ resource "aws_cognito_user_pool" "pool-1" {
     sns_caller_arn              = "${var.sns_caller_arn}"
     external_id                 = "${var.external_id}"
   }
-  sms_authentication_message    = "${var.sms_authentication_message}"
-  user_pool_add_ons             = "${var.user_pool_add_ons}"
+  sms_authentication_message     = "${var.sms_authentication_message}"
+  user_pool_add_ons              = "${var.user_pool_add_ons}"
   #verification_message_template = "${var.verification_message_template}"
-  tags                          = "${var.tags}"
-  admin_create_user_config = [{
+  tags                           = "${var.tags}"
+  admin_create_user_config  = [{
     allow_admin_create_user_only = "${var.allow_admin_create_user_only}"
     invite_message_template      = "${var.invite_message_template}"
     unused_account_validity_days = "${var.unused_account_validity_days}"
  }]
+  lifecycle {
+    ignore_changes     = ["temporary_password_validity_days","unused_account_validity_days"]
+  }
 }

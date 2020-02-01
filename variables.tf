@@ -131,7 +131,7 @@ variable "invite_message_template" {
 variable "unused_account_validity_days" {
   type        = "string"
   description = "The user account expiration limit, in days, after which the account is no longer usable"
-  default     = "30"
+  default     = 7
 }
 
 ##Variable for Invite Message template (inside of Admin Create User Config)
@@ -279,6 +279,12 @@ variable "require_uppercase" {
   default     = "false"
 }
 
+variable "temporary_password_validity_days" {
+  type        = "string"
+  description = "The user account expiration limit, in days, after which the account is no longer usable"
+  default     = 7
+}
+
 ############################################
 #######Variable for Schema Attributes#######
 
@@ -418,8 +424,3 @@ variable "message_template_sms_message" {
   default     = ""
 }
 
-variable "temporary_password_validity_days" {
-  type        = "string"
-  description = "The user account expiration limit, in days, after which the account is no longer usable"
-  default     = ""
-}
