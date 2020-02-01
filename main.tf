@@ -26,7 +26,7 @@ resource "aws_cognito_user_pool" "pool-1" {
     require_numbers                  = "${var.require_numbers}"
     require_symbols                  = "${var.require_symbols}"
     minimum_length                   = "${var.minimum_length}"
-    temporary_password_validity_days = "${var.temporary_password_validity_days}"         
+ #   temporary_password_validity_days = "${var.temporary_password_validity_days}"         
   }]
   schema                        = "${var.schema}"
   mfa_configuration             = "${var.mfa_configuration}"
