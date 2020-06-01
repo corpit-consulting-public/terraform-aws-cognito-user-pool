@@ -28,7 +28,7 @@ resource "aws_cognito_user_pool" "pool-1" {
     minimum_length                   = "${var.minimum_length}"
     temporary_password_validity_days = "${var.temporary_password_validity_days}"         
   }]
-  schema                        = "${var.schema}"
+  schema                        = "${concat(var.schema_default,var.schema)}"
   mfa_configuration             = "${var.mfa_configuration}"
   sms_configuration             = {
     sns_caller_arn              = "${var.sns_caller_arn}"
