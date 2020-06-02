@@ -71,10 +71,10 @@ variable "schema" {
   default     = []
 }
 
-variable "schema_default" {
-  type        = "list"
-  description = "Cognito user pool default schema take from schema_default.auto.tfvars"
-}
+#variable "schema_default" {
+#  type        = "list"
+#  description = "Cognito user pool default schema take from schema_default.auto.tfvars"
+#}
 
 variable "sms_configuration" {
   type        = "list"
