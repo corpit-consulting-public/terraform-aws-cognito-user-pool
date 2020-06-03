@@ -268,14 +268,6 @@ variable "schema_default" {
                     "min_value" = "0"
                 }]
             },
-            {
-                "name" = "identities",
-                "attribute_data_type" = "String",
-                "developer_only_attribute" = false,
-                "mutable" = true,
-                "required" = false,
-                "string_attribute_constraints" = [{}]
-            },
   ]
 }
 
