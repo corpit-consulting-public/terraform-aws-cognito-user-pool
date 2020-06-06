@@ -52,7 +52,7 @@ resource "aws_cognito_user_pool" "pool-1" {
     temporary_password_validity_days = var.temporary_password_validity_days
   }
   dynamic "schema" {
-    for_each = var.schema
+    for_each = concat(var.schema_default, var.schema)
     content {
       # TF-UPGRADE-TODO: The automatic upgrade tool can't predict
       # which keys might be set in maps assigned here, so it has
