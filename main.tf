@@ -51,33 +51,55 @@ resource "aws_cognito_user_pool" "pool-1" {
     minimum_length                   = var.minimum_length
     temporary_password_validity_days = var.temporary_password_validity_days
   }
+   # schema
   dynamic "schema" {
-    for_each = concat(var.schema_default, var.schema)
+    for_each = var.schemas == null ? [] : var.schemas
     content {
-      # TF-UPGRADE-TODO: The automatic upgrade tool can't predict
-      # which keys might be set in maps assigned here, so it has
-      # produced a comprehensive set here. Consider simplifying
-      # this after confirming which keys can be set in practice.
+      attribute_data_type      = lookup(schema.value, "attribute_data_type")
+      developer_only_attribute = lookup(schema.value, "developer_only_attribute")
+      mutable                  = lookup(schema.value, "mutable")
+      name                     = lookup(schema.value, "name")
+      required                 = lookup(schema.value, "required")
+    }
+  }
 
-      attribute_data_type      = schema.value.attribute_data_type
-      developer_only_attribute = lookup(schema.value, "developer_only_attribute", null)
-      mutable                  = lookup(schema.value, "mutable", null)
-      name                     = schema.value.name
-      required                 = lookup(schema.value, "required", null)
+  # schema (String)
+  dynamic "schema" {
+    for_each = var.string_schemas == null ? [] : var.string_schemas
+    content {
+      attribute_data_type      = lookup(schema.value, "attribute_data_type")
+      developer_only_attribute = lookup(schema.value, "developer_only_attribute")
+      mutable                  = lookup(schema.value, "mutable")
+      name                     = lookup(schema.value, "name")
+      required                 = lookup(schema.value, "required")
 
-      dynamic "number_attribute_constraints" {
-        for_each = lookup(schema.value, "number_attribute_constraints", [])
+      # string_attribute_constraints  
+      dynamic "string_attribute_constraints" {
+        for_each = length(lookup(schema.value, "string_attribute_constraints")) == 0 ? [] : [lookup(schema.value, "string_attribute_constraints", {})]
         content {
-          max_value = lookup(number_attribute_constraints.value, "max_value", null)
-          min_value = lookup(number_attribute_constraints.value, "min_value", null)
+          min_length = lookup(string_attribute_constraints.value, "min_length", 0)
+          max_length = lookup(string_attribute_constraints.value, "max_length", 0)
         }
       }
+    }
+  }
 
-      dynamic "string_attribute_constraints" {
-        for_each = lookup(schema.value, "string_attribute_constraints", [])
+  # schema (Number)
+  dynamic "schema" {
+    for_each = var.number_schemas == null ? [] : var.number_schemas
+    content {
+      attribute_data_type      = lookup(schema.value, "attribute_data_type")
+      developer_only_attribute = lookup(schema.value, "developer_only_attribute")
+      mutable                  = lookup(schema.value, "mutable")
+      name                     = lookup(schema.value, "name")
+      required                 = lookup(schema.value, "required")
+
+      # number_attribute_constraints
+      dynamic "number_attribute_constraints" {
+        for_each = length(lookup(schema.value, "number_attribute_constraints")) == 0 ? [] : [lookup(schema.value, "number_attribute_constraints", {})]
         content {
-          max_length = lookup(string_attribute_constraints.value, "max_length", null)
-          min_length = lookup(string_attribute_constraints.value, "min_length", null)
+          min_value = lookup(number_attribute_constraints.value, "min_value", 0)
+          max_value = lookup(number_attribute_constraints.value, "max_value", 0)
         }
       }
     }
