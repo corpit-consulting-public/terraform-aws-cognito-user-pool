@@ -130,9 +130,9 @@ variable "verification_message_template" {
 #######Variables for Admin Create User Config#######
 
 variable "allow_admin_create_user_only" {
-  type        = string
+  type        = bool
   description = "Set to true if only the administrator is allowed to create user profiles. Set false if users can sign themselves up via an app."
-  default     = ""
+  default     = "false"
 }
 
 variable "invite_message_template" {

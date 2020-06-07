@@ -143,8 +143,8 @@ resource "aws_cognito_user_pool" "pool-1" {
   }
   lifecycle {
     ignore_changes = [
-      temporary_password_validity_days,
-      unused_account_validity_days,
+   #   temporary_password_validity_days,
+   #   unused_account_validity_days,
     ]
   }
 }
