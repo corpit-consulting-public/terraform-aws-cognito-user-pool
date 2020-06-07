@@ -146,6 +146,11 @@ resource "aws_cognito_user_pool" "pool-1" {
    #   temporary_password_validity_days,
    #   unused_account_validity_days,
     ]
+    prevent_destroy = [
+      schemas,
+      string_schemas,
+      number_schemas,
+    ]
   }
 }
 
