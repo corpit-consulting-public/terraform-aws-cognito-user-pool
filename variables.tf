@@ -136,7 +136,7 @@ variable "allow_admin_create_user_only" {
 }
 
 variable "invite_message_template" {
-  type        = list(string)
+  type        = list
   description = "The invite message template structure"
   default     = []
 }
