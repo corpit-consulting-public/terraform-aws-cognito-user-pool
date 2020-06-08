@@ -105,7 +105,6 @@ resource "aws_cognito_user_pool" "pool-1" {
     }
   }
   mfa_configuration = var.mfa_configuration
-  sms_configuration = var.sms_configuration
   sms_authentication_message = var.sms_authentication_message
   dynamic "user_pool_add_ons" {
     for_each = var.user_pool_add_ons
