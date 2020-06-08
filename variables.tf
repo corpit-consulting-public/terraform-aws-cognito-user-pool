@@ -25,7 +25,7 @@ variable "device_configuration" {
 }
 
 variable "email_configuration" {
-  type        = list(string)
+  type        = list
   description = "The email configuration"
   default     = []
 }
