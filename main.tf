@@ -137,12 +137,5 @@ resource "aws_cognito_user_pool" "pool-1" {
     }
     #    unused_account_validity_days = "${var.unused_account_validity_days}"
   }
-  lifecycle {
-    ignore_changes = [
-   #   temporary_password_validity_days,
-   #   unused_account_validity_days,
-    ]
-    prevent_destroy = true
-  }
 }
 
