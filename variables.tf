@@ -25,7 +25,7 @@ variable "device_configuration" {
 }
 
 variable "email_configuration" {
-  type        = list(string)
+  type        = list
   description = "The email configuration"
   default     = []
 }
@@ -65,250 +65,29 @@ variable "password_policy" {
   default     = []
 }
 
-variable "schema" {
-  type        = list(string)
+# schema
+variable "schemas" {
   description = "A container with the schema attributes of a user pool. Maximum of 50 attributes"
+  type        = list
   default     = []
 }
 
-variable "schema_default" {
-  type        = list(map(string))
-  description = "Cognito user pool default schema take from schema_default.auto.tfvars"
-  default = [
-    {
-      "name"                     : "name"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : false
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "0"
-          "max_length" : "2048"
-        },
-      ]
-    },
-    {
-      "name"                     : "given_name"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : true
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "0"
-          "max_length" : "2048"
-        },
-      ]
-    },
-    {
-      "name"                     : "family_name"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : true
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "0"
-          "max_length" : "2048"
-        },
-      ]
-    },
-    {
-      "name"                     : "middle_name"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : false
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "0"
-          "max_length" : "2048"
-        },
-      ]
-    },
-    {
-      "name"                     : "nickname"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : false
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "0"
-          "max_length" : "2048"
-        },
-      ]
-    },
-    {
-      "name"                     : "preferred_username"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : false
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "0"
-          "max_length" : "2048"
-        },
-      ]
-    },
-    {
-      "name"                     : "profile"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : false
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "0"
-          "max_length" : "2048"
-        },
-      ]
-    },
-    {
-      "name"                     : "picture"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : false
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "0"
-          "max_length" : "2048"
-        },
-      ]
-    },
-    {
-      "name"                     : "website"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : false
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "0"
-          "max_length" : "2048"
-        },
-      ]
-    },
-    {
-      "name"                     : "email"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : true
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "0"
-          "max_length" : "2048"
-        },
-      ]
-    },
-    {
-      "name"                     : "email_verified"
-      "attribute_data_type"      : "Boolean"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : false
-    },
-    {
-      "name"                     : "gender"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : false
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "0"
-          "max_length" : "2048"
-        },
-      ]
-    },
-    {
-      "name"                     : "birthdate"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : false
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "10"
-          "max_length" : "10"
-        },
-      ]
-    },
-    {
-      "name"                     : "zoneinfo"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : false
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "0"
-          "max_length" : "2048"
-        },
-      ]
-    },
-    {
-      "name"                     : "locale"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : false
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "0"
-          "max_length" : "2048"
-        },
-      ]
-    },
-    {
-      "name"                     : "phone_number"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : false
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "0"
-          "max_length" : "2048"
-        },
-      ]
-    },
-    {
-      "name"                     : "address"
-      "attribute_data_type"      : "String"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : false
-      "string_attribute_constraints" : [
-        {
-          "min_length" : "0"
-          "max_length" : "2048"
-        },
-      ]
-    },
-    {
-      "name"                     : "updated_at"
-      "attribute_data_type"      : "Number"
-      "developer_only_attribute" : false
-      "mutable"                  : true
-      "required"                 : false
-      "number_attribute_constraints" : [
-        {
-          "min_value" : "0"
-        },
-      ]
-    },
-  ]
+variable "string_schemas" {
+  description = "A container with the string schema attributes of a user pool. Maximum of 50 attributes"
+  type        = list
+  default     = []
+}
+
+variable "number_schemas" {
+  description = "A container with the number schema attributes of a user pool. Maximum of 50 attributes"
+  type        = list
+  default     = []
 }
 
 variable "sms_configuration" {
-  type        = list(string)
-  description = "The SMS configuration"
-  default     = []
+  type        = map
+  description = "The SMS configuration. require external_id, sns_caller_arn "
+  default     = {}
 }
 
 variable "sms_verification_message" {
@@ -351,13 +130,13 @@ variable "verification_message_template" {
 #######Variables for Admin Create User Config#######
 
 variable "allow_admin_create_user_only" {
-  type        = string
+  type        = bool
   description = "Set to true if only the administrator is allowed to create user profiles. Set false if users can sign themselves up via an app."
-  default     = ""
+  default     = "false"
 }
 
 variable "invite_message_template" {
-  type        = list(string)
+  type        = list
   description = "The invite message template structure"
   default     = []
 }
