@@ -85,9 +85,9 @@ variable "number_schemas" {
 }
 
 variable "sms_configuration" {
-  type        = list(string)
-  description = "The SMS configuration"
-  default     = []
+  type        = map
+  description = "The SMS configuration. require external_id, sns_caller_arn "
+  default     = {}
 }
 
 variable "sms_verification_message" {
