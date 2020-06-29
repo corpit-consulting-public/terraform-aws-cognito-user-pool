@@ -3,7 +3,8 @@
 ```hcl
 
 module "CognitoUserPool" {
-  source                     = "./modules/tf-aws-cognito-user-pool-mod"
+  source                     = "corpit-consulting-public/cognito-user-pool/aws"
+  version                    = "v3.0.8"
   name                       = "CognitoUserPool"
   username_attributes        = [var.username_attributes]
   schema                     = var.schema
