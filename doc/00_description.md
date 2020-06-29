@@ -19,3 +19,9 @@ User pools provide:
  * Customized workflows and user migration through AWS Lambda triggers.
 
  * After successfully authenticating a user, Amazon Cognito issues JSON web tokens (JWT) that you can use to secure and authorize access to your own APIs, or exchange for AWS credentials.
+
+## Terraform Version
+
+Terraform 0.12. Pin module version to `~> v2.0`. Submit pull-requests to `teraform012` branch.
+
+Terraform 0.11. Pin module version to `~> v1.0`. Submit pull-requests to `terraform11` branch.
