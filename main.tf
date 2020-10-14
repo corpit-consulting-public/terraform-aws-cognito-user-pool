@@ -119,7 +119,7 @@ resource "aws_cognito_user_pool" "pool-1" {
   }
 # verification_message_template
   dynamic "verification_message_template" {
-    for_each = local.verification_message_template
+    for_each = var.verification_message_template
     content {
       default_email_option  = lookup(verification_message_template.value, "default_email_option")
       email_message_by_link = lookup(verification_message_template.value, "email_message_by_link")
