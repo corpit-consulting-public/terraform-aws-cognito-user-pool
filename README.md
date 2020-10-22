@@ -78,7 +78,7 @@ If you want to update README.md file, run that script while being in 'hooks' fol
 | device\_configuration | The configuration for the user pool's device tracking | list(string) | `<list>` | no |
 | device\_only\_remembered\_one\_user\_prompt | If a true, a device is only remembered on user prompt \(true or false\) | string | `""` | no |
 | email\_configuration | The email configuration | list | `<list>` | no |
-| email\_message | The message template for email messages. Must contain \{username\} and \{####\} placeholder, for username and temporary password, respectively | string | `"\u003cp\u003eYour username is {username} and temporary password is {####}\u003c/p\u003e\n\u003cp\u003eLogin here: \u003ca href=\"https://login.mvp.quickpivot.app\"\u003ehttps://login.mvp.quickpivot.app\u003c/a\u003e\u003c/p\u003e\n\n\u003cp\u003eThanks,\u003cp\u003e\n\u003cp\u003eQuickPivot Team\u003cp\u003e"` | no |
+| email\_message | The message template for email messages. Must contain \{username\} and \{####\} placeholder, for username and temporary password, respectively | string | `"\u003cp\u003eYour username is {username} and temporary password is {####}\u003c/p\u003e"` | no |
 | email\_message\_by\_link | The email message template for sending a confirmation link to the user, it must contain the \{##Click Here##\} placeholder. | string | `""` | no |
 | email\_subject | The subject line for email messages | string | `"Your temporary password for {####}"` | no |
 | email\_subject\_by\_link | The subject line for the email message template for sending a confirmation link to the user. | string | `""` | no |
