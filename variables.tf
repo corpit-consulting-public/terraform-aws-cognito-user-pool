@@ -151,7 +151,7 @@ variable "unused_account_validity_days" {
 variable "email_message" {
   type        = string
   description = "The message template for email messages. Must contain {username} and {####} placeholder, for username and temporary password, respectively"
-  default     = "<p>Your username is {username} and temporary password is {####}</p>\n<p>Login here: <a href=\"https://login.mvp.quickpivot.app\">https://login.mvp.quickpivot.app</a></p>\n\n<p>Thanks,<p>\n<p>QuickPivot Team<p>"
+  default     = "<p>Your username is {username} and temporary password is {####}</p>"
 }
 
 variable "email_subject" {
