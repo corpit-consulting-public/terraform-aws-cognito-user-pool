@@ -25,7 +25,7 @@ variable "device_configuration" {
 }
 
 variable "email_configuration" {
-  type        = list
+  type        = list(any)
   description = "The email configuration"
   default     = []
 }
@@ -68,24 +68,24 @@ variable "password_policy" {
 # schema
 variable "schemas" {
   description = "A container with the schema attributes of a user pool. Maximum of 50 attributes"
-  type        = list
+  type        = list(any)
   default     = []
 }
 
 variable "string_schemas" {
   description = "A container with the string schema attributes of a user pool. Maximum of 50 attributes"
-  type        = list
+  type        = list(any)
   default     = []
 }
 
 variable "number_schemas" {
   description = "A container with the number schema attributes of a user pool. Maximum of 50 attributes"
-  type        = list
+  type        = list(any)
   default     = []
 }
 
 variable "sms_configuration" {
-  type        = map
+  type        = map(any)
   description = "The SMS configuration. require external_id, sns_caller_arn "
   default     = {}
 }
@@ -121,7 +121,7 @@ variable "user_pool_add_ons" {
 }
 
 variable "verification_message_template" {
-  type        = list(string)
+  type        = list(any)
   description = "The verification messagetemplates configuration"
   default     = []
 }
@@ -136,7 +136,7 @@ variable "allow_admin_create_user_only" {
 }
 
 variable "invite_message_template" {
-  type        = list
+  type        = list(any)
   description = "The invite message template structure"
   default     = []
 }
