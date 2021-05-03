@@ -51,7 +51,7 @@ resource "aws_cognito_user_pool" "pool-1" {
     minimum_length                   = var.minimum_length
     temporary_password_validity_days = var.temporary_password_validity_days
   }
-   # schema
+  # schema
   dynamic "schema" {
     for_each = var.schemas == null ? [] : var.schemas
     content {
@@ -104,7 +104,7 @@ resource "aws_cognito_user_pool" "pool-1" {
       }
     }
   }
-  mfa_configuration = var.mfa_configuration
+  mfa_configuration          = var.mfa_configuration
   sms_authentication_message = var.sms_authentication_message
   dynamic "user_pool_add_ons" {
     for_each = var.user_pool_add_ons
@@ -117,13 +117,16 @@ resource "aws_cognito_user_pool" "pool-1" {
       advanced_security_mode = user_pool_add_ons.value.advanced_security_mode
     }
   }
-# verification_message_template
+  # verification_message_template
   dynamic "verification_message_template" {
     for_each = var.verification_message_template
     content {
-      default_email_option  = lookup(verification_message_template.value, "default_email_option")
-      email_message_by_link = lookup(verification_message_template.value, "email_message_by_link")
-      email_subject_by_link = lookup(verification_message_template.value, "email_subject_by_link")
+      default_email_option  = lookup(verification_message_template.value, "default_email_option", null)
+      email_message         = lookup(verification_message_template.value, "email_message", null)
+      email_message_by_link = lookup(verification_message_template.value, "email_message_by_link", null)
+      email_subject         = lookup(verification_message_template.value, "email_subject", null)
+      email_subject_by_link = lookup(verification_message_template.value, "email_subject_by_link", null)
+      sms_message           = lookup(verification_message_template.value, "sms_message", null)
     }
   }
 
