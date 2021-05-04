@@ -38,13 +38,13 @@ variable "name" {
 variable "email_verification_subject" {
   type        = string
   description = "A string representing the email verification subject. Conflicts with verification_message_template configuration block email_subject argument"
-  default     = "Your verification code"
+  default     = null
 }
 
 variable "email_verification_message" {
   type        = string
   description = "A string representing the email verification message. Conflicts with verification_message_template configuration block email_message argument"
-  default     = "Your verification code is {####}"
+  default     = null
 }
 
 variable "lambda_config" {
@@ -93,13 +93,13 @@ variable "sms_configuration" {
 variable "sms_verification_message" {
   type        = string
   description = "A string representing the SMS verification message. Conficts with verification_message_template configuration block sms_message argument"
-  default     = "Your verification code is {####}"
+  default     = null
 }
 
 variable "sms_authentication_message" {
   type        = string
   description = "A string representing the SMS verification message. Conflicts with verification_message_template configuration block sms_message argument"
-  default     = "Your authentication code is {####}."
+  default     = null
 }
 
 variable "tags" {
@@ -409,7 +409,7 @@ variable "default_email_option" {
 variable "message_template_email_message" {
   type        = string
   description = "The email message template. Must contain the {####} placeholder. Conflicts with email_verification_message argument"
-  default     = ""
+  default     = null
 }
 
 variable "email_message_by_link" {
@@ -421,18 +421,18 @@ variable "email_message_by_link" {
 variable "message_template_email_subject" {
   type        = string
   description = "The subject line for the email message template. Conflicts with email_verification_subject argument"
-  default     = ""
+  default     = null
 }
 
 variable "email_subject_by_link" {
   type        = string
   description = "The subject line for the email message template for sending a confirmation link to the user."
-  default     = ""
+  default     = null
 }
 
 variable "message_template_sms_message" {
   type        = string
   description = "The SMS message template. Must contain the {####} placeholder. Conflicts with sms_verification_message argument."
-  default     = ""
+  default     = null
 }
 
